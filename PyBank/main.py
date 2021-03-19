@@ -26,6 +26,9 @@ with open(csvpath, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
 
     total_months = []
+    profits_losses = []
+
+
 
     for row in csvreader:
         
@@ -38,18 +41,16 @@ with open(csvpath, 'r') as csvfile:
         month = row[0]
         total_months.append(month)
         
-        #months = list(csvreader)
-        #total_months = len(months)
-        #print(total_months)
-        
         # The net total amount of "Profit/Losses" over the entire period; sum of values in second column
-        #for 
-        #plvalues.append(row[1])
-        #print(plvalues)
+        p_l = row[1]
+        profits_losses.append(int(p_l))
+
     
 
 # Run analysis
 print(len(total_months))
+print(sum(profits_losses))
+
 
 # Print to terminal
 
