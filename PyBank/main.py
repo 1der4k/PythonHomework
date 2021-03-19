@@ -27,30 +27,33 @@ with open(csvpath, 'r') as csvfile:
 
     total_months = []
     profits_losses = []
-
+    changes_profits_losses =[]
 
 
     for row in csvreader:
         
-        #date = row[0]
-        #prof_loss = row[1]
-        #plvalues = []
-    
         # The total number of months included in the dataset; total number of entries in first column
-        
         month = row[0]
         total_months.append(month)
         
         # The net total amount of "Profit/Losses" over the entire period; sum of values in second column
-        p_l = row[1]
-        profits_losses.append(int(p_l))
+        profit_loss = row[1]
+        profits_losses.append(int(profit_loss))
 
+        # Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes
+        # I had some intuition about this, but the solution on this page clarified it for me: https://stackoverflow.com/questions/46965192/python-how-can-i-find-difference-between-two-rows-of-same-column-using-loop-in. However, when I initially attempted to run the code, I did not
+        # get a reasonable number as a result. Looking at my reference, it seemed like my problem was that I had placed this loop in the csvreader loop. I wasn't sure why this was a problem, at first, but after some thought I realized that none of the variables that the i loop
+        # was referencing were actually in rows in the reader, so placing it in there was unnecessary and was causing the i loop to over-iterate. Additionally, this helped illustrate to me the process that is actually happening when a loop goes through a reader.
+        
+    for i in range(1,len(profits_losses)):
+        changes_profits_losses.append(profits_losses[i] - profits_losses[i-1])
+        avg_changes_profits_losses = sum(changes_profits_losses)/len(changes_profits_losses)
     
 
 # Run analysis
 print(len(total_months))
 print(sum(profits_losses))
-
+print(avg_changes_profits_losses)
 
 # Print to terminal
 
