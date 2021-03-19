@@ -14,9 +14,7 @@ csvpath = os.path.join('Resources', 'budget_data.csv')
 
     # Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes; loop through second column capaturing changes in profit/loss, sum, then divide by total number of changes; assign to new column(?)
 
-    # The greatest increase in profits (date and amount) over the entire period; find max value in changes of profit/loss column
-
-    # The greatest decrease in losses (date and amount) over the entire period; find min value in changes of profit/loss column
+    
 
 # read in csv file
 with open(csvpath, 'r') as csvfile:
@@ -48,13 +46,21 @@ with open(csvpath, 'r') as csvfile:
     for i in range(1,len(profits_losses)):
         changes_profits_losses.append(profits_losses[i] - profits_losses[i-1])
         avg_changes_profits_losses = sum(changes_profits_losses)/len(changes_profits_losses)
+
+        # The greatest increase in profits (date and amount) over the entire period; find max value in changes of profit/loss column
+
+        # The greatest decrease in losses (date and amount) over the entire period; find min value in changes of profit/loss column
     
 
-# Run analysis
-print(len(total_months))
+# Print to terminal
+print("Financial Analysis")
+print("--------------------------------------------------")
+#print(len(total_months))
+print("Total Months: " + str(len(total_months)))
 print(sum(profits_losses))
 print(avg_changes_profits_losses)
+print(max(changes_profits_losses))
+print(min(changes_profits_losses))
 
-# Print to terminal
 
 # Export to file
