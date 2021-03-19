@@ -10,7 +10,7 @@ csvpath = os.path.join('Resources', 'budget_data.csv')
 
 
 
-    # The net total amount of "Profit/Losses" over the entire period; sum of values in second column
+    
 
     # Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes; loop through second column capaturing changes in profit/loss, sum, then divide by total number of changes; assign to new column(?)
 
@@ -19,23 +19,37 @@ csvpath = os.path.join('Resources', 'budget_data.csv')
     # The greatest decrease in losses (date and amount) over the entire period; find min value in changes of profit/loss column
 
 # read in csv file
-with open(csvpath) as csvfile:
+with open(csvpath, 'r') as csvfile:
     
+    header = next(csvfile)
+
     csvreader = csv.reader(csvfile, delimiter=',')
 
+    total_months = []
+
     for row in csvreader:
-        date = row[0]
-        prof_loss = row[1]
+        
+        #date = row[0]
+        #prof_loss = row[1]
+        #plvalues = []
     
         # The total number of months included in the dataset; total number of entries in first column
-        total_months = len(list(csvreader))
         
-
+        month = row[0]
+        total_months.append(month)
         
+        #months = list(csvreader)
+        #total_months = len(months)
+        #print(total_months)
+        
+        # The net total amount of "Profit/Losses" over the entire period; sum of values in second column
+        #for 
+        #plvalues.append(row[1])
+        #print(plvalues)
     
 
 # Run analysis
-
+print(len(total_months))
 
 # Print to terminal
 
