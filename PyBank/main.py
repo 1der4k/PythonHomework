@@ -55,12 +55,11 @@ with open(csvpath, 'r') as csvfile:
 # Print to terminal
 print("Financial Analysis")
 print("--------------------------------------------------")
-#print(len(total_months))
 print("Total Months: " + str(len(total_months)))
-print(sum(profits_losses))
-print(avg_changes_profits_losses)
-print(max(changes_profits_losses))
-print(min(changes_profits_losses))
+print("Total: " + str(sum(profits_losses)))
+print("Average Change: " + str(round(avg_changes_profits_losses,2)))
+print("Greatest Increase in Profits: " + str(max(changes_profits_losses)))
+print("Greatest Decrease in Profits: " + str(min(changes_profits_losses)))
 
 
 # Export to file
