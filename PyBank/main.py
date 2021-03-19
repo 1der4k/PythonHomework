@@ -63,3 +63,14 @@ print("Greatest Decrease in Profits: " + str(min(changes_profits_losses)))
 
 
 # Export to file
+output_path = os.path.join("Analysis", "financial_analysis.txt")
+
+with open(output_path, 'w', newline='') as txtfile:
+    
+    txtfile.write("Financial Analysis\n")
+    txtfile.write('--------------------------------------------------\n')
+    txtfile.write("Total Months: " + str(len(total_months)) + "\n")
+    txtfile.write("Total: " + str(sum(profits_losses)) + "\n")
+    txtfile.write("Average Change: " + str(round(avg_changes_profits_losses,2)) + "\n")
+    txtfile.write("Greatest Increase in Profits: " + str(max(changes_profits_losses)) + "\n")
+    txtfile.write("Greatest Decrease in Profits: " + str(min(changes_profits_losses)) + "\n")
