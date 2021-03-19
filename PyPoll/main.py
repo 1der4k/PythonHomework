@@ -13,8 +13,6 @@ with open(csvpath, 'r') as csvfile:
 
 # Analysis
     votes = []
-    candidates = set()
-    #cand_set = set(candidates)
     cand_list = []
 
     for row in csvreader:
@@ -24,7 +22,8 @@ with open(csvpath, 'r') as csvfile:
 
 # A complete list of candidates who received votes
         candidate = row[2]
-        candidates.add(candidate)
+        if candidate not in cand_list:
+            cand_list.append(candidate)
         
 # The percentage of votes each candidate won
 
@@ -38,8 +37,6 @@ print("Election Results")
 print("-------------------------------------------")
 print("Total Votes: " + str(len(votes)))
 print("-------------------------------------------")
-for x in candidates:
-    cand_list.append(x)
 print(cand_list[:])
 
 # Export to text file
