@@ -3,19 +3,7 @@ import os
 import csv
 
 csvpath = os.path.join('Resources', 'budget_data.csv')
-
-# define function
-#def analysis(row):
-    
-
-
-
-    
-
-    # Calculate the changes in "Profit/Losses" over the entire period, then find the average of those changes; loop through second column capaturing changes in profit/loss, sum, then divide by total number of changes; assign to new column(?)
-
-    
-
+ 
 # read in csv file
 with open(csvpath, 'r') as csvfile:
     
