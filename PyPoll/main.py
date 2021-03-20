@@ -52,10 +52,10 @@ def election_analysis(data):
     output_path = os.path.join("Analysis", "election_analysis.txt")
 
     with open(output_path, 'w', newline='') as txtfile:
-        txtfile.write("Election Results\n")
-        txtfile.write("-------------------------------------------\n")
-        txtfile.write("Total Votes: " + str(len(votes)) + '\n')
-        txtfile.write("-------------------------------------------\n")
+        txtfile.write("Election Results")
+        txtfile.write("\n-------------------------------------------")
+        txtfile.write("\nTotal Votes: " + str(len(votes)))
+        txtfile.write("\n-------------------------------------------")
         for i in range(len(cand_list)):
             txtfile.write(f'\n{cand_list[i]}: {round(vote_percent[i],3)}% ({cand_votes[i]})')
         txtfile.write("\n-------------------------------------------")
