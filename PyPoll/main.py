@@ -6,6 +6,8 @@ csvpath = os.path.join('Resources', 'election_data.csv')
 
 # define function
 def votes_analysis(data):
+    total_votes = []
+
     votes = []
 
     cand_list = []
@@ -17,7 +19,8 @@ def votes_analysis(data):
     for row in data:  
     # The total number of votes cast
         vote = row[0]
-        votes.append(vote)
+        total_votes.append(vote)
+        votes.append(row[2])
 
         # A complete list of candidates who received votes  
         cand_vote = row[2] 
@@ -26,7 +29,7 @@ def votes_analysis(data):
 
     # The total number of votes each candidate won
     for candidate in cand_list:
-        cand_votes.append(votes.count(candidate))   
+        cand_votes.append(total_votes.count(candidate))   
     # if cand_vote == "Khan":
     #     khan_vote.append(cand_vote)
     # elif cand_vote == "Correy":
