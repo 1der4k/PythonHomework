@@ -29,7 +29,7 @@ def votes_analysis(data):
 
     # The total number of votes each candidate won
     for candidate in cand_list:
-        cand_votes.append(total_votes.count(candidate))   
+        cand_votes.append(votes.count(candidate))   
     # if cand_vote == "Khan":
     #     khan_vote.append(cand_vote)
     # elif cand_vote == "Correy":
@@ -57,13 +57,14 @@ def votes_analysis(data):
     print("Total Votes: " + str(len(votes)))
     print("-------------------------------------------")
     for i in range(len(cand_list)):
-        print(f'{cand_list[i]}: {round(vote_percent[i])}% {cand_votes[i]}')
+        print(f'{cand_list[i]}: {round(vote_percent[i],3)}% ({cand_votes[i]})')
     # print("Khan: " + str(round(khan_percent,3)) + "%" + " (" + str(khan_vote.count("Khan")) +")")
     # print("Correy: " + str(round(correy_percent,3)) + "%"  + " (" + str(correy_vote.count("Correy")) +")")
     # print("Li: " + str(round(li_percent,3)) + "%"  + " (" + str(li_vote.count("Li")) +")")
     # print("O'Tooley: " + str(round(otooley_percent,3)) + "%"  + " (" + str(otooley_vote.count("O'Tooley")) +")")
     print("-------------------------------------------")
     print(f'Winner: {winner}')
+    print("-------------------------------------------")
 
 # read in csv file
 with open(csvpath, 'r') as csvfile:
