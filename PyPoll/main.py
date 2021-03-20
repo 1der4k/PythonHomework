@@ -5,7 +5,7 @@ import csv
 csvpath = os.path.join('Resources', 'election_data.csv')
 
 # define function
-def votes_analysis(data):
+def election_analysis(data):
     total_votes = []
 
     votes = []
@@ -66,6 +66,20 @@ def votes_analysis(data):
     print(f'Winner: {winner}')
     print("-------------------------------------------")
 
+    # Export to file
+    output_path = os.path.join("Analysis", "election_analysis.txt")
+
+    with open(output_path, 'w', newline='') as txtfile:
+        txtfile.write("Election Results\n")
+        txtfile.write("-------------------------------------------\n")
+        txtfile.write("Total Votes: " + str(len(votes)) + '\n')
+        txtfile.write("-------------------------------------------\n")
+        for i in range(len(cand_list)):
+            txtfile.write(f'\n{cand_list[i]}: {round(vote_percent[i],3)}% ({cand_votes[i]})')
+        txtfile.write("\n-------------------------------------------")
+        txtfile.write(f'\nWinner: {winner}')
+        txtfile.write("\n-------------------------------------------")
+
 # read in csv file
 with open(csvpath, 'r') as csvfile:
     
@@ -74,7 +88,9 @@ with open(csvpath, 'r') as csvfile:
     csvreader = csv.reader(csvfile, delimiter=',')
 
 # Analysis
-    votes_analysis(csvreader)
+    election_analysis(csvreader)
+
+
 
        
 
